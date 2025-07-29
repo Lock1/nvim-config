@@ -8,6 +8,12 @@ vim.opt.selection = "inclusive"
 -- Disable autoformat
 vim.g.autoformat = false
 
+-- Indetation
+vim.o.tabstop = 4
+vim.o.shiftwidth = 4
+vim.o.expandtab = true
+vim.o.smartindent = true
+
 -- Whitespace & linebreak highlighting
 vim.opt.list = true
 vim.opt.listchars = {

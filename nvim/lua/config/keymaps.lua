@@ -57,9 +57,11 @@ map("x", "p", "P", { desc = "Paste-without-yank" })
 map("n", "<c-`>", function() Snacks.terminal(nil, { cwd = LazyVim.root() }) end, { desc = "LazyVim-override-terminal" })
 map("t", "<C-`>", "<cmd>close<cr>", { desc = "LazyVim-override-hide-terminal" })
 
--- Commenting
+-- Commenting - TODO: Need other visual mode
 map("n", "<C-/>", "gcc", { remap = true, silent = true, desc = "Toggle-comment" })
 map("i", "<C-/>", "<C-o>gcc", { remap = true, silent = true, desc = "Toggle-comment" })
+
+
 
 -- Side-scrolling
 vim.api.nvim_set_keymap("x", "<s-scrollwheelup>", "5zh", { noremap = true, desc = "side-scroll-right" })

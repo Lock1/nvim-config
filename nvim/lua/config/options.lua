@@ -5,7 +5,10 @@ vim.opt.virtualedit = "onemore"
 vim.opt.relativenumber = false
 vim.opt.selection = "inclusive"
 
--- Whitespace & linebreak Highlighting
+-- Disable autoformat
+vim.g.autoformat = false
+
+-- Whitespace & linebreak highlighting
 vim.opt.list = true
 vim.opt.listchars = {
     tab = "-> ",
@@ -16,4 +19,3 @@ vim.opt.listchars = {
     precedes = "❮",
     eol = "↴",
 }
-

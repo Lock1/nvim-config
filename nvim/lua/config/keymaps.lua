@@ -46,13 +46,22 @@ map("n", "<Del>", "i<Del>", { silent = true })
 map("v", "<Del>", "c<Del>", { silent = true })
 
 -- Project navigation -> Telescope plugin: Fuzzy finder
-map({ "n", "v" }, "<C-t>", "<cmd>Telescope find_files<CR>", { silent = true })
+map("n", "<C-t>", LazyVim.pick("files"), { silent = true })
+map("v", "<C-t>", LazyVim.pick("files"), { silent = true })
 
 -- Visual paste/delete without yank
 map("v", "d", '"_d', { noremap = true, silent = true })
 map("x", "p", "P", { desc = "Paste-without-yank" })
 
--- side-scrolling
+-- Terminal
+map("n", "<c-`>", function() Snacks.terminal(nil, { cwd = LazyVim.root() }) end, { desc = "LazyVim-override-terminal" })
+map("t", "<C-`>", "<cmd>close<cr>", { desc = "LazyVim-override-hide-terminal" })
+
+-- Commenting
+map("n", "<C-/>", "gcc", { remap = true, silent = true, desc = "Toggle-comment" })
+map("i", "<C-/>", "<C-o>gcc", { remap = true, silent = true, desc = "Toggle-comment" })
+
+-- Side-scrolling
 vim.api.nvim_set_keymap("x", "<s-scrollwheelup>", "5zh", { noremap = true, desc = "side-scroll-right" })
 vim.api.nvim_set_keymap("x", "<s-scrollwheeldown>", "5zl", { noremap = true, desc = "side-scroll-left" })
 

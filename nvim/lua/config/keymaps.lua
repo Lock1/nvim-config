@@ -27,6 +27,11 @@ map("i", "<S-Left>", "<Esc>v<Left>i", { silent = true })
 map("i", "<S-Up>", "<Esc>v<Up>i", { silent = true })
 map("i", "<S-Down>", "<Esc>v<Down>i", { silent = true })
 
+-- Visual: Inclusive mode (behave like every GUI-program rather than first character)
+map("v", "<C-Right>", "e", { remap = true, silent = true })
+map("v", "<C-Left>", "b", { remap = true, silent = true })
+
+
 -- Copy-paste
 map("n", "<C-c>", "yy", { silent = true })
 map("v", "<C-c>", '"+y', { silent = true })
@@ -49,6 +54,12 @@ map("v", "<Del>", "c<Del>", { silent = true })
 map("n", "<C-t>", LazyVim.pick("files"), { silent = true })
 map("v", "<C-t>", LazyVim.pick("files"), { silent = true })
 
+-- Buffer cycling & close
+map("n", "<C-Tab>", "<cmd>BufferLineCycleNext<CR>",  { silent = true })
+map("n", "<C-S-Tab>", "<cmd>BufferLineCyclePrev<CR>",  { silent = true })
+map("n", "<C-w>", "<leader>bd", { remap = true, silent = true })
+
+
 -- Visual paste/delete without yank
 map("v", "d", '"_d', { noremap = true, silent = true })
 map("x", "p", "P", { desc = "Paste-without-yank" })
@@ -60,6 +71,12 @@ map("t", "<C-`>", "<cmd>close<cr>", { desc = "LazyVim-override-hide-terminal" })
 -- Commenting - TODO: Need other visual mode
 map("n", "<C-/>", "gcc", { remap = true, silent = true, desc = "Toggle-comment" })
 map("i", "<C-/>", "<C-o>gcc", { remap = true, silent = true, desc = "Toggle-comment" })
+
+-- LSP - Rename
+map("n", "<F2>", "<leader>cr", { remap = true, silent = true, desc = "LSP-refactor-rename" })
+map("i", "<F2>", "<C-o><leader>cr", { remap = true, silent = true, desc = "LSP-refactor-rename" })
+
+
 
 
 

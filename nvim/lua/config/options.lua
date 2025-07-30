@@ -1,8 +1,11 @@
 -- Extra 1 character on normal mode navigation
 vim.opt.virtualedit = "onemore"
 
--- Absolute line number
-vim.opt.relativenumber = false
+-- Font
+vim.o.guifont = "Hasklug Nerd Font:h14"
+
+-- Relative line number
+vim.opt.relativenumber = true
 vim.opt.selection = "inclusive"
 
 -- Disable autoformat

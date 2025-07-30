@@ -41,10 +41,10 @@
   "nvim-ts-autotag": { "branch": "main", "commit": "a1d526af391f6aebb25a8795cbc05351ed3620b5" },
   "nvim-ts-context-commentstring": { "branch": "main", "commit": "1b212c2eee76d787bbea6aa5e92a2b534e7b4f8f" },
   "one-small-step-for-vimkind": { "branch": "main", "commit": "91b4e0fb0d640def73812aceb22dafb99261dd67" },
-  "onedarkpro.nvim": { "branch": "main", "commit": "5ffd45b3602bc1ed75f0b2be6c5c1f6ba5c6b796" },
   "outline.nvim": { "branch": "main", "commit": "0eb9289ab39c91caf8b3ed0e3a17764809d69558" },
   "persistence.nvim": { "branch": "main", "commit": "166a79a55bfa7a4db3e26fc031b4d92af71d0b51" },
   "plenary.nvim": { "branch": "master", "commit": "b9fd5226c2f76c951fc8ed5923d85e4de065e509" },
+  "rainbow-delimiters.nvim": { "branch": "master", "commit": "97bf4b8ef9298644a29fcd9dd41a0210cf08cac7" },
   "refactoring.nvim": { "branch": "master", "commit": "74b608dfee827c2372250519d433cc21cb083407" },
   "rustaceanvim": { "branch": "master", "commit": "f845bb055397019c4bc70f9c76376ca490f4c783" },
   "snacks.nvim": { "branch": "main", "commit": "bc0630e43be5699bb94dadc302c0d21615421d93" },
@@ -55,5 +55,6 @@
   "tokyonight.nvim": { "branch": "main", "commit": "057ef5d260c1931f1dffd0f052c685dcd14100a3" },
   "trouble.nvim": { "branch": "main", "commit": "85bedb7eb7fa331a2ccbecb9202d8abba64d37b3" },
   "ts-comments.nvim": { "branch": "main", "commit": "1bd9d0ba1d8b336c3db50692ffd0955fe1bb9f0c" },
+  "vscode_modern_theme.nvim": { "branch": "main", "commit": "8aa1ea927cc626f29ec3cb44f986b82e5509969e" },
   "which-key.nvim": { "branch": "main", "commit": "370ec46f710e058c9c1646273e6b225acf47cbed" }
 }

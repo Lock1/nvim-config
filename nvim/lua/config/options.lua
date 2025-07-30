@@ -4,6 +4,10 @@ vim.opt.virtualedit = "onemore"
 -- Font
 vim.o.guifont = "Hasklug Nerd Font:h14"
 
+-- Transparency
+vim.g.neovide_opacity = 0.85
+vim.g.neovide_normal_opacity = 0.85
+
 -- Relative line number
 vim.opt.relativenumber = true
 vim.opt.selection = "inclusive"

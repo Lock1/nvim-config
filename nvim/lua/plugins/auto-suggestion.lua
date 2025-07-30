@@ -7,8 +7,16 @@ return {
             }
         },
         keymap = {
-            preset = "default",
-            ["<Esc>"] = { "cancel" } -- First Esc during auto completion will reject suggestion while maintain insert mode
+            preset = "enter",
+            ["<Esc>"] = {  -- First Esc during auto completion will reject suggestion while maintain insert mode
+                function(cmp)
+                    if cmp.is_visible() then 
+                        cmp.cancel()
+                    else
+                        vim.cmd("stopinsert")
+                    end
+                end,
+            }
         }
     }
 }

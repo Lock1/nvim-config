@@ -72,11 +72,19 @@ map("t", "<C-`>", "<cmd>close<cr>", { desc = "LazyVim-override-hide-terminal" })
 map("n", "<C-/>", "gcc", { remap = true, silent = true, desc = "Toggle-comment" })
 map("i", "<C-/>", "<C-o>gcc", { remap = true, silent = true, desc = "Toggle-comment" })
 
+-- Remapping full -> half page scroll + <C-(S)-d> to * & #
+map("n", "<C-f>", "<C-d>", { silent = true, desc = "Half-page-scroll-forward" })
+map("n", "<C-b>", "<C-u>", { silent = true, desc = "Half-page-scroll-backward" })
+map("n", "<C-d>", "*", { silent = true, desc = "Quick-search-forward" })
+map("n", "<C-S-d>", "#", { silent = true, desc = "Quick-search-backward" })
+
 -- LSP - Rename
 map("n", "<F2>", "<leader>cr", { remap = true, silent = true, desc = "LSP-refactor-rename" })
 map("i", "<F2>", "<C-o><leader>cr", { remap = true, silent = true, desc = "LSP-refactor-rename" })
 
-
+-- LSP - Goto definition
+map("n", "<F12>", "gd", { remap = true, silent = true, desc = "Goto-definition" })
+map("i", "<F12>", "<C-o>gd", { remap = true, silent = true, desc = "Goto-definition" })
 
 
 

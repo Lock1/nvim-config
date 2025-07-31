@@ -1,0 +1,16 @@
+gui:
+  showFileTree: false
+  branchColorPatterns:
+    '(main|master)': '#dd0000'
+    'feat\/(\w|\/)*': '#48bd8e'
+    'fix\/(\w|\/)*': '#e8dc3a' 
+  nerdFontsVersion: "3"
+  spinner:
+    frames:
+      - ''
+      - ''
+      - ''
+      - ''
+    rate: 50
+  animateExplosion: true
+  filterMode: fuzzy

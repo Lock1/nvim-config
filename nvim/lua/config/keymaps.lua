@@ -57,8 +57,6 @@ map("v", "<C-t>", LazyVim.pick("files"), { silent = true })
 -- Buffer cycling & close
 map("n", "<C-Tab>", "<cmd>BufferLineCycleNext<CR>",  { silent = true })
 map("n", "<C-S-Tab>", "<cmd>BufferLineCyclePrev<CR>",  { silent = true })
-map("n", "<C-w>", "<leader>bd", { remap = true, silent = true })
-
 
 -- Visual paste/delete without yank
 map("v", "d", '"_d', { noremap = true, silent = true })

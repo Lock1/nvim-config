@@ -42,13 +42,16 @@ map("n", "<C-v>", '"+p<Right>', { silent = true })
 map("n", "<C-x>", '"+dd', { silent = true })
 map("v", "<C-x>", '"+x', { silent = true })
 
--- In-place fast (newline|backspace|delete) -> insert
+-- In-place fast (newline|backspace|delete|tab) -> insert
 map("n", "<CR>", "i<CR>", { silent = true })
 map("v", "<CR>", "c<CR>", { silent = true })
 map("n", "<BS>", "i<BS>", { silent = true })
 map("v", "<BS>", "c<BS>", { silent = true })
 map("n", "<Del>", "i<Del>", { silent = true })
 map("v", "<Del>", "c<Del>", { silent = true })
+map("n", "<Tab>", ">>i", { silent = true })
+map("n", "<S-Tab>", "<<i", { silent = true })
+
 
 -- Project navigation -> Telescope plugin: Fuzzy finder
 map("n", "<C-t>", LazyVim.pick("files"), { silent = true })
@@ -58,8 +61,9 @@ map("v", "<C-t>", LazyVim.pick("files"), { silent = true })
 map("n", "<C-Tab>", "<cmd>BufferLineCycleNext<CR>",  { silent = true })
 map("n", "<C-S-Tab>", "<cmd>BufferLineCyclePrev<CR>",  { silent = true })
 
--- Visual paste/delete without yank
-map("v", "d", '"_d', { noremap = true, silent = true })
+-- Paste/delete without yank
+map({"v", "n"}, "d", '"_d', { noremap = true, silent = true })
+map({"v", "n"}, "c", '"_c', { noremap = true, silent = true })
 map("x", "p", "P", { desc = "Paste-without-yank" })
 
 -- Terminal
@@ -84,6 +88,14 @@ map("i", "<F2>", "<C-o><leader>cr", { remap = true, silent = true, desc = "LSP-r
 map("n", "<F12>", "gd", { remap = true, silent = true, desc = "Goto-definition" })
 map("i", "<F12>", "<C-o>gd", { remap = true, silent = true, desc = "Goto-definition" })
 
+-- LSP - Trigger suggestion
+map("n", "<C-Space>", "i<C-Space>", { })
+
+-- Weird unmapped keys
+map("v", "<S-Up>", "<Up>", { silent = true, desc = "Defaulted-to-up" })
+map("v", "<S-Down>", "<Down>", { silent = true, desc = "Defaulted-to-down" })
+map("i", "<S-Tab>", "<C-o><<", { silent = true, desc = "De-indent" })
+
 
 
 -- Side-scrolling
@@ -95,3 +107,4 @@ vim.api.nvim_set_keymap("n", "<s-scrollwheeldown>", "5zl", { noremap = true, des
 
 vim.api.nvim_set_keymap("i", "<s-scrollwheelup>", "<c-o>5zh", { noremap = true, desc = "side-scroll-right" })
 vim.api.nvim_set_keymap("i", "<S-ScrollWheelDown>", "<C-O>5zl", { noremap = true, desc = "Side-scroll-left" })
+

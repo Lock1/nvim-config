@@ -4,10 +4,10 @@ return {
     opts = {
         colors = {
             bg = "", -- fallback to Normal highlight group
-            copy = "#f5c359",
-            delete = "FFC23649",
-            insert = "FF74DAD2",
-            visual = "FF6B1E8F",
+            copy = "#fcb12d",
+            delete = "#e02d12",
+            insert = "#3f5bd9",
+            visual = "#18c4de",
         },
         line_opacity = 0.15,
         set_cursor = true,

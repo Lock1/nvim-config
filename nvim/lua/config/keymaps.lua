@@ -88,8 +88,11 @@ map("i", "<F2>", "<C-o><leader>cr", { remap = true, silent = true, desc = "LSP-r
 map("n", "<F12>", "gd", { remap = true, silent = true, desc = "Goto-definition" })
 map("i", "<F12>", "<C-o>gd", { remap = true, silent = true, desc = "Goto-definition" })
 
--- LSP - Trigger suggestion
-map("n", "<C-Space>", "i<C-Space>", { })
+-- LSP - Normal mode: Trigger suggestion and switch to insert mode
+map("n", "<C-Space>", function()
+    vim.api.nvim_feedkeys("i", 'm', true)
+    vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<C-Space>", true, false, true), 'm', false)
+end, { silent = true })
 
 -- Weird unmapped keys
 map("v", "<S-Up>", "<Up>", { silent = true, desc = "Defaulted-to-up" })

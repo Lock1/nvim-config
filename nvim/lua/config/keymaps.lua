@@ -11,10 +11,17 @@ map("i", "<C-S-z>", "<C-o><C-r>", { desc = "Redo" })
 map("i", "<C-BS>", "<C-W>", { noremap = true, desc = "Delete-left-word" })
 
 -- Move line
-map({ "n", "x" }, "<A-Up>", ":m .-2<CR>==", { silent = true })
-map({ "n", "x" }, "<A-Down>", ":m .+1<CR>==", { silent = true })
-map("i", "<A-Up>", "<Esc>:m .-2<CR>==", { silent = true })
-map("i", "<A-Down>", "<Esc>:m .+1<CR>==", { silent = true })
+-- No mini.move
+-- map({ "n", "x" }, "<A-Up>", ":m .-2<CR>==", { silent = true })
+-- map({ "n", "x" }, "<A-Down>", ":m .+1<CR>==", { silent = true })
+-- map("i", "<A-Up>", "<Esc>:m .-2<CR>==", { silent = true })
+-- map("i", "<A-Down>", "<Esc>:m .+1<CR>==", { silent = true })
+-- With mini move
+map("x", "<M-Left>", "<M-h>", { remap = true, silent = true })
+map("x", "<M-Right>", "<M-l>", { remap = true, silent = true })
+map({"n", "i", "v"}, "<M-Down>", "<M-j>", { remap = true, silent = true })
+map({"n", "i", "v"}, "<M-Up>", "<M-k>", { remap = true, silent = true })
+
 
 -- Shift-for-select -> Auto visual-mode switch
 map("n", "<S-Left>", "v<Left>", { silent = true })
@@ -77,8 +84,8 @@ map("i", "<C-/>", "<C-o>gcc", { remap = true, silent = true, desc = "Toggle-comm
 -- Remapping full -> half page scroll + <C-(S)-d> to * & #
 map("n", "<C-f>", "<C-d>", { silent = true, desc = "Half-page-scroll-forward" })
 map("n", "<C-b>", "<C-u>", { silent = true, desc = "Half-page-scroll-backward" })
-map("n", "<C-d>", "*", { silent = true, desc = "Quick-search-forward" })
-map("n", "<C-S-d>", "#", { silent = true, desc = "Quick-search-backward" })
+-- map("n", "<C-d>", "*", { silent = true, desc = "Quick-search-forward" })
+-- map("n", "<C-S-d>", "#", { silent = true, desc = "Quick-search-backward" })
 
 -- LSP - Rename
 map("n", "<F2>", "<leader>cr", { remap = true, silent = true, desc = "LSP-refactor-rename" })
@@ -98,6 +105,9 @@ end, { silent = true })
 map("v", "<S-Up>", "<Up>", { silent = true, desc = "Defaulted-to-up" })
 map("v", "<S-Down>", "<Down>", { silent = true, desc = "Defaulted-to-down" })
 map("i", "<S-Tab>", "<C-o><<", { silent = true, desc = "De-indent" })
+map("v", "<Tab>", ">gv", { silent = true, desc = "Indent-on-visual"})
+map("v", "<S-Tab>", "<gv", { silent = true, desc = "De-indent-on-visual"})
+
 
 
 

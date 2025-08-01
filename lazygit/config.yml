@@ -7,10 +7,16 @@ gui:
   nerdFontsVersion: "3"
   spinner:
     frames:
-      - ''
-      - ''
-      - ''
-      - ''
-    rate: 50
+      - '⠸'
+      - '⠼'
+      - '⠴'
+      - '⠦'
+      - '⠧'
+      - '⠇'
+      - '⠏'
+      - '⠋'
+      - '⠙'
+      - '⠹'
+    rate: 30
   animateExplosion: true
   filterMode: fuzzy

@@ -84,10 +84,10 @@ map("v", "<C-/>", "gcc<Esc>", { remap = true, silent = true, desc = "Toggle-comm
 
 
 -- Remapping full -> half page scroll + <C-(S)-d> to * & #
-map("n", "<C-f>", "<C-d>", { silent = true, desc = "Half-page-scroll-forward" })
-map("n", "<C-b>", "<C-u>", { silent = true, desc = "Half-page-scroll-backward" })
-map("n", "<C-d>", "*", { silent = true, desc = "Quick-search-forward" })
-map("n", "<C-S-d>", "#", { silent = true, desc = "Quick-search-backward" })
+-- map("n", "<C-f>", "<C-d>", { silent = true, desc = "Half-page-scroll-forward" })
+-- map("n", "<C-b>", "<C-u>", { silent = true, desc = "Half-page-scroll-backward" })
+-- map("n", "<C-d>", "*", { silent = true, desc = "Quick-search-forward" })
+-- map("n", "<C-S-d>", "#", { silent = true, desc = "Quick-search-backward" })
 
 -- LSP - Rename
 map("n", "<F2>", "<leader>cr", { remap = true, silent = true, desc = "LSP-refactor-rename" })

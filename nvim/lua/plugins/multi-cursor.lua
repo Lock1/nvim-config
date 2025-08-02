@@ -4,7 +4,8 @@ return {
     init = function()
         vim.g.VM_maps = {
             ["Find Under"] = "<C-d>",
-            --  TODO: Buggy C-d edit
+            ["Add Cursor Up"] = "<C-S-Up>",
+            ["Add Cursor Down"] = "<C-S-Down>",
         }
     end
 }

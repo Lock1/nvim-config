@@ -38,6 +38,9 @@ map("i", "<S-Down>", "<Esc>v<Down>i", { silent = true })
 map("v", "<C-Right>", "e", { remap = true, silent = true })
 map("v", "<C-Left>", "b", { remap = true, silent = true })
 
+-- Insert: Inclusive mode (ditto)
+map("i", "<C-Right>", "<Esc>ea", { silent = true }) -- Unfortunate side effect: uh, it will flash in/out 1 frame for i -> normal -> a
+
 
 -- Copy-paste
 map("n", "<C-c>", "yy", { silent = true })
@@ -112,7 +115,11 @@ map("i", "<S-Tab>", "<C-o><<", { silent = true, desc = "De-indent" })
 map("v", "<Tab>", ">gv", { silent = true, desc = "Indent-on-visual"})
 map("v", "<S-Tab>", "<gv", { silent = true, desc = "De-indent-on-visual"})
 
-
+-- Overriding LazyVim window adjustment keybind to more "natural" GUI-way: Cursor motion in insert mode
+map("n", "<C-Up>", "{", { silent = true, desc = "GUI-way-move-previous-paragraph" })
+map("n", "<C-Down>", "}", { silent = true, desc = "GUI-way-move-next-paragraph" })
+map("n", "<C-Left>", "b", { silent = true, desc = "GUI-way-move-previous-inclusive-word" })
+map("n", "<C-Right>", "e", { silent = true, desc = "GUI-way-move-next-inclusive-word" })
 
 
 -- Side-scrolling

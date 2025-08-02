@@ -116,11 +116,17 @@ map("v", "<Tab>", ">gv", { silent = true, desc = "Indent-on-visual"})
 map("v", "<S-Tab>", "<gv", { silent = true, desc = "De-indent-on-visual"})
 
 -- Overriding LazyVim window adjustment keybind to more "natural" GUI-way: Cursor motion in insert mode
+-- Eyeballing + mouse for window management is much better anyway, as long as the emulator supports it
 map("n", "<C-Up>", "{", { silent = true, desc = "GUI-way-move-previous-paragraph" })
 map("n", "<C-Down>", "}", { silent = true, desc = "GUI-way-move-next-paragraph" })
 map("n", "<C-Left>", "b", { silent = true, desc = "GUI-way-move-previous-inclusive-word" })
 map("n", "<C-Right>", "e", { silent = true, desc = "GUI-way-move-next-inclusive-word" })
 
+-- LazyVim: Buffer
+map("n", "<C-b>", "<leader>b", { remap = true, silent = true, desc = "Trigger-buffer-menu" })
+
+-- Terminal pasting
+map("t", "<C-S-v>", "<C-Bslash><C-o>p", { silent = true, desc = "Terminal-paste" })
 
 -- Side-scrolling
 vim.api.nvim_set_keymap("x", "<s-scrollwheelup>", "5zh", { noremap = true, desc = "side-scroll-right" })

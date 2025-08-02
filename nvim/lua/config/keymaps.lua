@@ -12,10 +12,10 @@ map("i", "<C-BS>", "<C-W>", { noremap = true, desc = "Delete-left-word" })
 
 -- Move line
 -- No mini.move
--- map({ "n", "x" }, "<A-Up>", ":m .-2<CR>==", { silent = true })
--- map({ "n", "x" }, "<A-Down>", ":m .+1<CR>==", { silent = true })
--- map("i", "<A-Up>", "<Esc>:m .-2<CR>==", { silent = true })
--- map("i", "<A-Down>", "<Esc>:m .+1<CR>==", { silent = true })
+map({ "n", "x" }, "<A-Up>", ":m .-2<CR>==", { silent = true })
+map({ "n", "x" }, "<A-Down>", ":m .+1<CR>==", { silent = true })
+map("i", "<A-Up>", "<Esc>:m .-2<CR>==", { silent = true })
+map("i", "<A-Down>", "<Esc>:m .+1<CR>==", { silent = true })
 -- With mini move
 map("x", "<M-Left>", "<M-h>", { remap = true, silent = true })
 map("x", "<M-Right>", "<M-l>", { remap = true, silent = true })
@@ -77,15 +77,17 @@ map("x", "p", "P", { desc = "Paste-without-yank" })
 map("n", "<c-`>", function() Snacks.terminal(nil, { cwd = LazyVim.root() }) end, { desc = "LazyVim-override-terminal" })
 map("t", "<C-`>", "<cmd>close<cr>", { desc = "LazyVim-override-hide-terminal" })
 
--- Commenting - TODO: Need other visual mode
+-- Commenting
 map("n", "<C-/>", "gcc", { remap = true, silent = true, desc = "Toggle-comment" })
 map("i", "<C-/>", "<C-o>gcc", { remap = true, silent = true, desc = "Toggle-comment" })
+map("v", "<C-/>", "gcc<Esc>", { remap = true, silent = true, desc = "Toggle-comment" })
+
 
 -- Remapping full -> half page scroll + <C-(S)-d> to * & #
 map("n", "<C-f>", "<C-d>", { silent = true, desc = "Half-page-scroll-forward" })
 map("n", "<C-b>", "<C-u>", { silent = true, desc = "Half-page-scroll-backward" })
--- map("n", "<C-d>", "*", { silent = true, desc = "Quick-search-forward" })
--- map("n", "<C-S-d>", "#", { silent = true, desc = "Quick-search-backward" })
+map("n", "<C-d>", "*", { silent = true, desc = "Quick-search-forward" })
+map("n", "<C-S-d>", "#", { silent = true, desc = "Quick-search-backward" })
 
 -- LSP - Rename
 map("n", "<F2>", "<leader>cr", { remap = true, silent = true, desc = "LSP-refactor-rename" })

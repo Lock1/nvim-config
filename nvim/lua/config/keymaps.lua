@@ -100,6 +100,8 @@ map("n", "<C-Space>", function()
     vim.api.nvim_feedkeys("i", 'm', true)
     vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<C-Space>", true, false, true), 'm', false)
 end, { silent = true })
+map("n", "<C-.>", "<Space>ca", { remap = true, silent = true, desc = "Code-action" })
+map("i", "<C-.>", "<C-o><Space>ca", { remap = true, silent = true, desc = "Code-action" })
 
 -- Weird unmapped keys
 map("v", "<S-Up>", "<Up>", { silent = true, desc = "Defaulted-to-up" })

@@ -149,3 +149,5 @@ map("n", "g<C-l>", function() require("dial.map").manipulate("decrement", "gnorm
 map("x", "<C-l>", function() require("dial.map").manipulate("decrement", "visual") end)
 map("x", "g<C-l>", function() require("dial.map").manipulate("decrement", "gvisual") end)
 
+-- Select mode: Exit
+map("s", "<Esc>", "<C-o><Esc>", { remap = true, desc = "exit-select-mode" })

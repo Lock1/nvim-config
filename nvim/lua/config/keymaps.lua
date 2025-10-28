@@ -138,3 +138,14 @@ vim.api.nvim_set_keymap("n", "<s-scrollwheeldown>", "5zl", { noremap = true, des
 vim.api.nvim_set_keymap("i", "<s-scrollwheelup>", "<c-o>5zh", { noremap = true, desc = "side-scroll-right" })
 vim.api.nvim_set_keymap("i", "<S-ScrollWheelDown>", "<C-O>5zl", { noremap = true, desc = "Side-scroll-left" })
 
+-- Dial Plugin: Increment / Decrement
+map("n", "<C-a>", function() require("dial.map").manipulate("increment", "normal") end)
+map("n", "g<C-a>", function() require("dial.map").manipulate("increment", "gnormal") end)
+map("x", "<C-a>", function() require("dial.map").manipulate("increment", "visual") end)
+map("x", "g<C-a>", function() require("dial.map").manipulate("increment", "gvisual") end)
+
+map("n", "<C-l>", function() require("dial.map").manipulate("decrement", "normal") end)
+map("n", "g<C-l>", function() require("dial.map").manipulate("decrement", "gnormal") end)
+map("x", "<C-l>", function() require("dial.map").manipulate("decrement", "visual") end)
+map("x", "g<C-l>", function() require("dial.map").manipulate("decrement", "gvisual") end)
+

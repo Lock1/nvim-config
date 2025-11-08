@@ -6,4 +6,4 @@ Personal neovim config
 - fd
 - fzf
 - ripgrep
-- 
+

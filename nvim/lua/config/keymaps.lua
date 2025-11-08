@@ -8,7 +8,7 @@ map("i", "<C-z>",   "<C-o>u",     { desc="Undo" })
 map("i", "<C-S-z>", "<C-o><C-r>", { desc="Redo" })
 
 -- Word-delete
-map("i", "<C-BS>", "<C-W>", { noremap=true, desc="Delete-left-word" })
+map("i", "<C-BS>", "<C-W>", { remap=false, desc="Delete-left-word" })
 
 -- Move line
 -- No mini.move
@@ -47,7 +47,7 @@ map("i", "<C-Right>", "<Esc>ea", { silent=true }) -- Unfortunate side effect: uh
 map({ "i", "c" }, "<C-c>", "<Esc>",   { silent=true })
 map("n", "<C-c>", "yy",               { silent=true })
 map("v", "<C-c>", '"+y',              { silent=true })
-map("i", "<C-v>", '<Esc>"+p<Right>i', { silent=true, desc="Paste" })
+map("i", "<C-v>", '<Esc>"+p<Right>i', { silent=true,  desc="Paste" })
 map("c", "<C-v>", "<C-r>+",           { silent=false, desc="Paste-on-command-mode" })
 map("n", "<C-v>", '"+p<Right>',       { silent=true })
 map("n", "<C-x>", '"+dd',             { silent=true })
@@ -73,8 +73,8 @@ map("n", "<C-Tab>",   "<cmd>BufferLineCycleNext<CR>", { silent=true })
 map("n", "<C-S-Tab>", "<cmd>BufferLineCyclePrev<CR>", { silent=true })
 
 -- Paste/delete without yank
-map({"v", "n"}, "d", '"_d', { noremap=true, silent=true })
-map({"v", "n"}, "c", '"_c', { noremap=true, silent=true })
+map({"v", "n"}, "d", '"_d', { remap=false, silent=true })
+map({"v", "n"}, "c", '"_c', { remap=false, silent=true })
 map("x", "p", "P", { desc="Paste-without-yank" })
 
 -- Terminal
@@ -135,14 +135,14 @@ map("n", "<C-b>", "<leader>b", { remap=true, silent=true, desc="Trigger-buffer-m
 map("t", "<C-S-v>", "<C-Bslash><C-o>p", { silent=true, desc="Terminal-paste" })
 
 -- Side-scrolling
-vim.api.nvim_set_keymap("x", "<s-scrollwheelup>",   "5zh",      { noremap=true, desc="side-scroll-right" })
-vim.api.nvim_set_keymap("x", "<s-scrollwheeldown>", "5zl",      { noremap=true, desc="side-scroll-left" })
+vim.api.nvim_set_keymap("x", "<s-scrollwheelup>",   "5zh",      { noremap=false, desc="side-scroll-right" })
+vim.api.nvim_set_keymap("x", "<s-scrollwheeldown>", "5zl",      { noremap=false, desc="side-scroll-left" })
 
-vim.api.nvim_set_keymap("n", "<s-scrollwheelup>",   "5zh",      { noremap=true, desc="side-scroll-right" })
-vim.api.nvim_set_keymap("n", "<s-scrollwheeldown>", "5zl",      { noremap=true, desc="side-scroll-left" })
+vim.api.nvim_set_keymap("n", "<s-scrollwheelup>",   "5zh",      { noremap=false, desc="side-scroll-right" })
+vim.api.nvim_set_keymap("n", "<s-scrollwheeldown>", "5zl",      { noremap=false, desc="side-scroll-left" })
 
-vim.api.nvim_set_keymap("i", "<s-scrollwheelup>",   "<c-o>5zh", { noremap=true, desc="side-scroll-right" })
-vim.api.nvim_set_keymap("i", "<S-ScrollWheelDown>", "<C-O>5zl", { noremap=true, desc="Side-scroll-left" })
+vim.api.nvim_set_keymap("i", "<s-scrollwheelup>",   "<c-o>5zh", { noremap=false, desc="side-scroll-right" })
+vim.api.nvim_set_keymap("i", "<S-ScrollWheelDown>", "<C-O>5zl", { noremap=false, desc="Side-scroll-left" })
 
 -- Dial Plugin: Increment / Decrement
 map("n", "<C-a>",  function() require("dial.map").manipulate("increment", "normal") end)
@@ -161,5 +161,9 @@ map(
     "s",
     "<C-c>",
     "<C-o><Esc>",
-    { noremap=false, desc="exit-select-mode"
+    { remap=true, desc="exit-select-mode"
 })
+
+-- Vim's mark related
+map("n", "gm", "<Space>sm", { remap=true, desc="Go to mark" })
+

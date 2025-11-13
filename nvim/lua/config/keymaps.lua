@@ -68,10 +68,6 @@ map("n", "<S-Tab>", "<<i",    { silent=true })
 -- map("n", "<C-t>", LazyVim.pick("files"), { silent=true }) -- 2025/11, deprecated due to <Space><Space> is more convenient & bind are going to be used for Tab
 -- map("v", "<C-t>", LazyVim.pick("files"), { silent=true })
 
--- Buffer cycling & close
-map("n", "<C-Tab>",   "<cmd>BufferLineCycleNext<CR>", { silent=true })
-map("n", "<C-S-Tab>", "<cmd>BufferLineCyclePrev<CR>", { silent=true })
-
 -- Paste/delete without yank
 map({"v", "n"}, "d", '"_d', { remap=false, silent=true })
 map({"v", "n"}, "c", '"_c', { remap=false, silent=true })
@@ -79,7 +75,7 @@ map("x", "p", "P", { desc="Paste-without-yank" })
 
 -- Terminal
 map("n", "<c-`>", function() Snacks.terminal(nil, { cwd=LazyVim.root() }) end, { desc="LazyVim-override-terminal" })
-map("t", "<C-`>", "<cmd>close<cr>", { desc="LazyVim-override-hide-terminal" })
+map("t", "<C-`>", function() vim.cmd("close")                             end, { desc="LazyVim-override-hide-terminal" })
 
 -- Commenting
 map("n", "<C-/>", "gcc",      { remap=true, silent=true, desc="Toggle-comment" })
@@ -128,9 +124,6 @@ map("n", "<C-Down>",  "}", { silent=true, desc="GUI-way-move-next-paragraph" })
 map("n", "<C-Left>",  "b", { silent=true, desc="GUI-way-move-previous-inclusive-word" })
 map("n", "<C-Right>", "e", { silent=true, desc="GUI-way-move-next-inclusive-word" })
 
--- LazyVim: Buffer
-map("n", "<C-b>", "<leader>b", { remap=true, silent=true, desc="Trigger-buffer-menu" })
-
 -- Terminal pasting
 map("t", "<C-S-v>", "<C-Bslash><C-o>p", { silent=true, desc="Terminal-paste" })
 
@@ -142,7 +135,7 @@ vim.api.nvim_set_keymap("n", "<s-scrollwheelup>",   "5zh",      { noremap=false,
 vim.api.nvim_set_keymap("n", "<s-scrollwheeldown>", "5zl",      { noremap=false, desc="side-scroll-left" })
 
 vim.api.nvim_set_keymap("i", "<s-scrollwheelup>",   "<c-o>5zh", { noremap=false, desc="side-scroll-right" })
-vim.api.nvim_set_keymap("i", "<S-ScrollWheelDown>", "<C-O>5zl", { noremap=false, desc="Side-scroll-left" })
+vim.api.nvim_set_keymap("i", "<S-ScrollWheelDown>", "<C-O>5zl", { noremap=false, desc="side-scroll-left" })
 
 -- Dial Plugin: Increment / Decrement
 map("n", "<C-a>",  function() require("dial.map").manipulate("increment", "normal") end)
@@ -157,21 +150,21 @@ map("x", "g<C-p>", function() require("dial.map").manipulate("decrement", "gvisu
 
 -- Select mode: Exit
 -- Note: Due to blink.cmp <Esc> binding that takes precedence over any mapping, this mapping is being called from there
-map(
-    "s",
-    "<C-c>",
-    "<C-o><Esc>",
-    { remap=true, desc="exit-select-mode"
-})
+map( "s", "<C-c>", "<C-o><Esc>", { remap=true, desc="exit-select-mode" })
 
 -- Vim's mark related
 map("n", "gm", "<Space>sm", { remap=true, desc="Go to mark" })
 
--- Tab-related. Treating tab as "an operation that combine both window movement <C-*> + buffer movement <S-*>"
-map("n", "<C-t>", "<Space><Tab>", { remap=true, desc="Tab menu" })
-map("n", "<C-S-h>", "<Space><Tab>[", { remap=true, desc="Previous tab" })
-map("n", "<C-S-l>", "<Space><Tab>]", { remap=true, desc="Next tab" })
+-- Buffer-related
+map("n", "<C-n>",      function() vim.cmd("enew")                end, { desc="New empty buffer" }) -- New file (new buffer)
+map("n", "<C-Tab>",    function() vim.cmd("BufferLineCycleNext") end, { silent=true })
+map("n", "<C-S-Tab>",  function() vim.cmd("BufferLineCyclePrev") end, { silent=true })
+map("n", "<C-b>",      "<leader>b",                                   { remap=true, silent=true, desc="Menu: Buffer" })
+map("n", "<leader>bq", "<leader>d",                                   { remap=true, desc="#Close" }) -- Delete buffer (rebind)
 
--- New file (new buffer)
-map("n", "<C-n>", function() vim.cmd("enew") end, { desc="New empty buffer" })
+-- Tab-related. Treating tab as "an operation that combine both window movement <C-*> + buffer movement <S-*>"
+map("n", "<C-t>",         "<Space><Tab>",  { remap=true, desc="Menu: Tab" })
+map("n", "<C-S-h>",       "<Space><Tab>[", { remap=true, desc="#Previous" })
+map("n", "<C-S-l>",       "<Space><Tab>]", { remap=true, desc="#Next" })
+map("n", "<Space><Tab>q", "<Space><Tab>d", { remap=true, desc="#Close" }) -- Consistency: Close #(Buffer|Window|Tab) with q
 

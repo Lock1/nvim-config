@@ -65,8 +65,8 @@ map("n", "<S-Tab>", "<<i",    { silent=true })
 
 
 -- Project navigation -> Telescope plugin: Fuzzy finder
-map("n", "<C-t>", LazyVim.pick("files"), { silent=true })
-map("v", "<C-t>", LazyVim.pick("files"), { silent=true })
+-- map("n", "<C-t>", LazyVim.pick("files"), { silent=true }) -- 2025/11, deprecated due to <Space><Space> is more convenient & bind are going to be used for Tab
+-- map("v", "<C-t>", LazyVim.pick("files"), { silent=true })
 
 -- Buffer cycling & close
 map("n", "<C-Tab>",   "<cmd>BufferLineCycleNext<CR>", { silent=true })
@@ -166,4 +166,12 @@ map(
 
 -- Vim's mark related
 map("n", "gm", "<Space>sm", { remap=true, desc="Go to mark" })
+
+-- Tab-related. Treating tab as "an operation that combine both window movement <C-*> + buffer movement <S-*>"
+map("n", "<C-t>", "<Space><Tab>", { remap=true, desc="Tab menu" })
+map("n", "<C-S-h>", "<Space><Tab>[", { remap=true, desc="Previous tab" })
+map("n", "<C-S-l>", "<Space><Tab>]", { remap=true, desc="Next tab" })
+
+-- New file (new buffer)
+map("n", "<C-n>", function() vim.cmd("enew") end, { desc="New empty buffer" })
 

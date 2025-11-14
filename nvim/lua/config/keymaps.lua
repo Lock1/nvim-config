@@ -160,7 +160,7 @@ map("n", "<C-n>",      function() vim.cmd("enew")                end, { desc="Ne
 map("n", "<C-Tab>",    function() vim.cmd("BufferLineCycleNext") end, { silent=true })
 map("n", "<C-S-Tab>",  function() vim.cmd("BufferLineCyclePrev") end, { silent=true })
 map("n", "<C-b>",      "<leader>b",                                   { remap=true, silent=true, desc="Menu: Buffer" })
-map("n", "<leader>bq", "<leader>d",                                   { remap=true, desc="#Close" }) -- Delete buffer (rebind)
+map("n", "<leader>bq", "<Space>bd",                                   { remap=true, desc="#Close" }) -- Delete buffer (rebind)
 
 -- Tab-related. Treating tab as "an operation that combine both window movement <C-*> + buffer movement <S-*>"
 map("n", "<C-t>",         "<Space><Tab>",  { remap=true, desc="Menu: Tab" })

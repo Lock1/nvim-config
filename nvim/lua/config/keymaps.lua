@@ -4,8 +4,10 @@ local map = vim.keymap.set
 -- Undo-redo
 map({ "n", "x", "v" }, "<C-z>",   "u",     { desc="Undo" })
 map({ "n", "x", "v" }, "<C-S-z>", "<C-r>", { desc="Redo" })
+map({ "n", "x", "v" }, "<C-y>",   "<C-r>", { desc="Redo" })
 map("i", "<C-z>",   "<C-o>u",     { desc="Undo" })
 map("i", "<C-S-z>", "<C-o><C-r>", { desc="Redo" })
+map("i", "<C-y>",   "<C-o><C-r>", { desc="Redo" })
 
 -- Word-delete
 map("i", "<C-BS>", "<C-W>", { remap=false, desc="Delete-left-word" })

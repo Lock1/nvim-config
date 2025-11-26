@@ -67,13 +67,16 @@ map("n", "<S-Tab>", "<<i",    { silent=true })
 
 
 -- Project navigation -> Telescope plugin: Fuzzy finder
--- map("n", "<C-t>", LazyVim.pick("files"), { silent=true }) -- 2025/11, deprecated due to <Space><Space> is more convenient & bind are going to be used for Tab
+-- map("n", "<C-t>", LazyVim.pick("files"), { silent=true }) -- 2025/11, deprecated due to <Space><Space> is more convenient & this bind are going to be used for "Tab" feature
 -- map("v", "<C-t>", LazyVim.pick("files"), { silent=true })
 
 -- Paste/delete without yank
 map({"v", "n"}, "d", '"_d', { remap=false, silent=true })
 map({"v", "n"}, "c", '"_c', { remap=false, silent=true })
-map("x", "p", "P", { desc="Paste-without-yank" })
+map("x", "p", "P", { desc="Paste in-place by default" })
+
+-- However, turn 1-char cut to actual delete-with-yank
+map({"v", "n"}, "x", function() vim.notify("Initiating cut..."); vim.api.nvim_feedkeys("d", "n", true); end, { remap=false, silent=true })
 
 -- Terminal
 map("n", "<c-`>", function() Snacks.terminal(nil, { cwd=LazyVim.root() }) end, { desc="LazyVim-override-terminal" })
@@ -104,8 +107,8 @@ map(
     "n",
     "<C-Space>",
     function()
-        vim.api.nvim_feedkeys("i", 'm', true)
-        vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<C-Space>", true, false, true), 'm', false)
+        vim.api.nvim_feedkeys("i", "m", true)
+        vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<C-Space>", true, false, true), "m", false)
     end,
     { silent=true }
 )

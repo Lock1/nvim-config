@@ -1,9 +1,13 @@
-# nvim-config
-Personal neovim config
+# UNIX Config
+Personal UNIX tools config.
 
-# Checklist
-- lazygit + config
-- fd
-- fzf
-- ripgrep
+# Package Checklist
+- Primary editor: `nvim` + `neovide`
+    - `lazygit`
+    - fd
+    - ripgrep
+- Lightweight editor: `vim`
+- Shell: `zsh`
+    - omz
+    - fzf
 

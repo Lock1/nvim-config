@@ -77,6 +77,7 @@ map("x", "p", "P", { desc="Paste in-place by default" })
 
 -- However, turn 1-char cut to actual delete-with-yank
 map({"v", "n"}, "x", function() vim.notify("Initiating cut..."); vim.api.nvim_feedkeys("d", "n", true); end, { remap=false, silent=true })
+map("o", "x", "d", { remap=false, silent=true, desc="Same-line cut" })
 
 -- Terminal
 map("n", "<c-`>", function() Snacks.terminal(nil, { cwd=LazyVim.root() }) end, { desc="LazyVim-override-terminal" })

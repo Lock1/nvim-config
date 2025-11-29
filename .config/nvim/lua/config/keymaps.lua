@@ -130,6 +130,12 @@ map("n", "<C-Down>",  "}", { silent=true, desc="GUI-way-move-next-paragraph" })
 map("n", "<C-Left>",  "b", { silent=true, desc="GUI-way-move-previous-inclusive-word" })
 map("n", "<C-Right>", "e", { silent=true, desc="GUI-way-move-next-inclusive-word" })
 
+-- Window size management
+map("n", "<A-Up>",    "<C-w>+", { remap=false, desc="Increase Window Vertically" })
+map("n", "<A-Down>",  "<C-w>-", { remap=false, desc="Decrease Window Vertically" })
+map("n", "<A-Right>", "<C-w>>", { remap=false, desc="Increase Window Horizontally" })
+map("n", "<A-Left>",  "<C-w><", { remap=false, desc="Decrease Window Horizontally" })
+
 -- Terminal pasting
 map("t", "<C-S-v>", "<C-Bslash><C-o>p", { silent=true, desc="Terminal-paste" })
 
